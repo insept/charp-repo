@@ -5,25 +5,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-
-namespace Exercise1
+namespace Exercise2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var counter = 0; 
+            var longestWord = "";
             var path = @"C:\tmp\ostkaka.txt";
             var fileInfo = File.ReadAllText(path);
             var fileContent = fileInfo.Split(' ');
 
-            
 
-            foreach (var word in fileContent )
+
+            foreach (var word in fileContent)
             {
-                counter++;
+                
+                int lettersInWord = word.Count();
+                if (lettersInWord > longestWord.Count())
+                {
+                    longestWord = word;
+                }
+                
             }
-            Console.WriteLine(counter);
+            Console.WriteLine(longestWord);
         }
     }
 }
